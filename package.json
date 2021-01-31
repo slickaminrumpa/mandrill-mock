@@ -1,0 +1,28 @@
+{
+  "name": "mandrill-mock",
+  "version": "1.0.0",
+  "description": "mandrill mock",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mail",
+    "mandrill",
+    "mock"
+  ],
+  "author": "slickaminrumpa",
+  "repository": "https://github.com/slickaminrumpa/mandrill-mock",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mailparser": "^3.0.1",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.17",
+    "pino": "^6.11.0",
+    "pino-pretty": "^4.4.0",
+    "rc": "^1.2.8"
+  }
+}
