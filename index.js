@@ -14,8 +14,8 @@ const logger = pino(config.logger);
     const mailer = await createMailer(config, logger);
     const webhook = new Webhook(config, logger);
     const app = express();
-    app.use(bodyParser.urlencoded({ extended: false }))
-    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
+    app.use(bodyParser.json({limit: '50mb'}));
 
     app.post('/api/1.0/messages/send-raw\.json', createSendRawHandler(config, logger, simpleParser, mailer, webhook));
 
