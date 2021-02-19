@@ -2,11 +2,41 @@
 
 # mandrill-mock
 
-## how to run
+mocks endpoint `/messages/send-raw.json` of mandrill api.
+
+delivers messages to mailhog for inspection.
+
+can send webhook calls if configured.
+
+## local development
+
+### requirements
+
+node >= 14.x
+
+### setup 
+
+`npm install`
+
+### configuration
+
+see config.js for defaults.
+
+create config.local.js to customize config.
+
+### how to run
 
 `npm run start`
 
-## env vars for docker
+## deploy via docker  
+
+see docker-compose.yml for example setup.
+
+### docker image available
+
+https://hub.docker.com/r/slickaminrumpa/mandrill-mock
+
+### use config env vars for docker deployment
 
 ```
 MANDRILL-MOCK_mailer__host=smtp.myserver.com
