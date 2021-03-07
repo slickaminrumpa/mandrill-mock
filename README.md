@@ -30,7 +30,7 @@ create config.local.js to customize config.
 
 ## deploy via docker  
 
-see docker-compose.yml for example setup.
+see docker-compose.yml and docker-compose.webhook.yml for example setup.
 
 ### docker image available
 
