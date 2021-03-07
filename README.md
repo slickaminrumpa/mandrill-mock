@@ -28,6 +28,10 @@ create config.local.js to customize config.
 
 `npm run start`
 
+to spin up all docker containers in docker-compose files
+
+`npm run docker-up-all` 
+
 ## deploy via docker  
 
 see docker-compose.yml and docker-compose.webhook.yml for example setup.
