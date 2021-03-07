@@ -4,7 +4,10 @@
   "description": "mandrill mock",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "docker-up-all": "docker-compose -f docker-compose.yml -f docker-compose.webhook.yml up -d",
+    "docker-down-all": "docker-compose -f docker-compose.yml -f docker-compose.webhook.yml down",
+    "docker-pull": "docker-compose -f docker-compose.yml -f docker-compose.webhook.yml pull"
   },
   "keywords": [
     "mail",

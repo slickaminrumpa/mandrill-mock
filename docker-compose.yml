@@ -4,7 +4,7 @@ services:
     build: .
     environment:
       - MANDRILL-MOCK_mailer__host=mailhog
-      - MANDRILL-MOCK_webhook1__url=http://webhook:80/61429ce4-cbb1-4dc4-a651-ad596b1f58b8
+      - MANDRILL-MOCK_webhook1__url=http://webhook:80/0944e113-9e98-42e6-821e-4762b8b191e4
       - MANDRILL-MOCK_webhook1__key=abc123
     ports:
       - "8080:8080"
@@ -18,40 +18,4 @@ services:
       - '1025:1025'
       - '8025:8025'
 
-  webhook:
-    image: "fredsted/webhook.site"
-    command: php artisan queue:work --daemon --tries=3 --timeout=10
-    depends_on:
-      - redis
-      - laravel-echo-server
-    ports:
-      - "8084:80"
-    environment:
-      - APP_ENV=dev
-      - APP_DEBUG=true
-      - APP_URL=http://localhost:8084
-      - APP_LOG=errorlog
-      - DB_CONNECTION=sqlite
-      - REDIS_HOST=redis
-      - BROADCAST_DRIVER=redis
-      - CACHE_DRIVER=redis
-      - QUEUE_DRIVER=redis
-      - ECHO_HOST_MODE=path
-
-  redis:
-    image: "redis:alpine"
-
-  laravel-echo-server:
-    image: "mintopia/laravel-echo-server"
-    environment:
-      - LARAVEL_ECHO_SERVER_AUTH_HOST=http://webhook
-      - LARAVEL_ECHO_SERVER_HOST=0.0.0.0
-      - LARAVEL_ECHO_SERVER_PORT=6001
-      - ECHO_REDIS_PORT=6379
-      - ECHO_REDIS_HOST=redis
-      - ECHO_PROTOCOL=http
-      - ECHO_ALLOW_CORS=true
-      - ECHO_ALLOW_ORIGIN=*
-      - ECHO_ALLOW_METHODS=*
-      - ECHO_ALLOW_HEADERS=*
 version: '3'
