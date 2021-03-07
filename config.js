@@ -31,6 +31,13 @@ module.exports = parseWebhooks(require('rc')(require('./package.json').name, {
         port: 1025,
         secure: false
     },
+    behavior: {
+        spreadReceivers: true,
+        deferralPrefix: 'sim.deferral@',
+        softBouncePrefix: 'sim.softbounce@',
+        hardBouncePrefix: 'sim.hardbounce@',
+        rejectPrefix: 'sim.reject@'
+    },
     webhook1: {
         url: '',
         key: ''
