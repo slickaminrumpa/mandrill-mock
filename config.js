@@ -6,8 +6,9 @@ function parseWebhooks(config) {
     let webhooks = [];
     const pattern = /webhook\d+/;
     for (let key in config) {
-        if (config.hasOwnProperty(key)) {
-            key.match(pattern) && webhooks.push(config[key]) && delete config[key];
+        if (config.hasOwnProperty(key) && key.match(pattern)
+            && typeof config[key] === 'object' && config[key] !== null && config[key] !== '' ) {
+            webhooks.push(config[key]) && delete config[key];
         }
     }
     config.webhooksActive = (webhooks.length) ? config.webhooksActive || true : false;
@@ -20,7 +21,7 @@ module.exports = parseWebhooks(require('rc')(require('./package.json').name, {
         port: 8080
     },
     logger: {
-        level: 'trace',
+        level: 'debug',
         prettyPrint: {
             colorize: true,
             translateTime: true
@@ -38,6 +39,7 @@ module.exports = parseWebhooks(require('rc')(require('./package.json').name, {
         hardBouncePrefix: 'sim.hardbounce@',
         rejectPrefix: 'sim.reject@'
     },
+    webhookCronPattern: '* * * * *',
     webhook1: {
         url: '',
         key: ''

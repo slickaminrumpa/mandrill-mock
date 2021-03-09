@@ -24,7 +24,7 @@ const logger = pino(config.logger);
     });
 
     if (config.webhooksActive) {
-        cron.schedule('* * * * *', async () => {
+        cron.schedule(config.webhookCronPattern, async () => {
             logger.trace('running webhook task');
            await webhook.sendWebhooks();
         });
