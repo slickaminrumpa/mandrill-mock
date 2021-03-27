@@ -2,7 +2,7 @@
 
 # mandrill-mock
 
-mocks endpoint `/messages/send-raw.json` of mandrill api.
+mocks endpoints `/messages/send.json` and `/messages/send-raw.json` of mandrill api.
 
 delivers messages to mailhog for inspection.
 
