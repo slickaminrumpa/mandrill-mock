@@ -5,6 +5,7 @@ const simpleParser = require('mailparser').simpleParser;
 const cron = require('node-cron');
 const config = require('./config');
 const createSendRawHandler = require('./lib/handler/send-raw');
+const createSendHandler = require('./lib/handler/send');
 const Webhook = require('./lib/webhook');
 const pino = require('pino');
 
@@ -18,6 +19,7 @@ const logger = pino(config.logger);
     app.use(bodyParser.json({limit: '50mb'}));
 
     app.post('/api/1.0/messages/send-raw\.json', createSendRawHandler(config, logger, simpleParser, mailer, webhook));
+    app.post('/api/1.0/messages/send\.json', createSendHandler(config, logger, mailer, webhook));
 
     app.listen(config.server.port, () => {
         logger.info(`Started server at http://localhost:${config.server.port}`);
