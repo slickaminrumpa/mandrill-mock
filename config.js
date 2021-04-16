@@ -37,7 +37,8 @@ module.exports = parseWebhooks(require('rc')(require('./package.json').name, {
         deferralPrefix: 'sim.deferral@',
         softBouncePrefix: 'sim.softbounce@',
         hardBouncePrefix: 'sim.hardbounce@',
-        rejectPrefix: 'sim.reject@'
+        rejectPrefix: 'sim.reject@',
+        errorPrefix: 'sim.error@',
     },
     webhookCronPattern: '* * * * *',
     webhook1: {
