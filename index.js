@@ -20,6 +20,7 @@ const logger = pino(config.logger);
 
     app.post('/api/1.0/messages/send-raw\.json', createSendRawHandler(config, logger, simpleParser, mailer, webhook));
     app.post('/api/1.0/messages/send\.json', createSendHandler(config, logger, mailer, webhook));
+    app.get('/health', (req, res) => { res.status(200).send('Ok'); });
 
     app.listen(config.server.port, () => {
         logger.info(`Started server at http://localhost:${config.server.port}`);
